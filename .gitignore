@@ -27,6 +27,7 @@ backend/.env
 frontend/.env 
 
 # Uploads
+uploads/
 backend/uploads
 
 # OS / Editor files
