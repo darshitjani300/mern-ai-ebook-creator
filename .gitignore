@@ -26,6 +26,9 @@ frontend/build/
 backend/.env 
 frontend/.env 
 
+# Uploads
+backend/uploads
+
 # OS / Editor files
 .vscode/*
 !.vscode/extensions.json
