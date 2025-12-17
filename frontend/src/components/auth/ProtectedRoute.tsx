@@ -1,13 +1,13 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 interface Props {
   children: React.ReactNode;
 }
 
 const ProtectedRoute = ({ children }: Props) => {
-  const isAuthenticated = false;
-  const loading = false;
+  const { isAuthenticated, loading }: any = useAuth();
   const location = useLocation();
 
   if (loading) {

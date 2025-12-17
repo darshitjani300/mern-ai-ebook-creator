@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext({});
 
@@ -46,6 +46,7 @@ export const AuthProvider = ({ children }: any) => {
     setUser(userData);
     setIsAuthenticated(true);
   };
+
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -55,6 +56,7 @@ export const AuthProvider = ({ children }: any) => {
     setIsAuthenticated(false);
     window.location.href = "/";
   };
+
   const updateUser = (updatedUserData: any) => {
     const newUserData = { ...user, ...updatedUserData };
     localStorage.setItem("user", JSON.stringify(newUserData));
@@ -63,8 +65,8 @@ export const AuthProvider = ({ children }: any) => {
 
   const value: any = {
     user,
-    setUser,
     loading,
+    isAuthenticated,
     login,
     logout,
     updateUser,

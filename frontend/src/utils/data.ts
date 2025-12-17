@@ -31,7 +31,7 @@ export const FEATURES = [
   },
 ];
 
-export const TESTIMONALS = [
+export const TESTIMONIALS = [
   {
     quote:
       "This platform has revolutionized the way I create eBooks. It's a game-changer!",
