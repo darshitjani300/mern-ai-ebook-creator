@@ -40,8 +40,8 @@ export const AuthProvider = ({ children }: any) => {
   };
 
   const login = (userData: any, token: any) => {
-    localStorage.setItem("token", token);
     localStorage.setItem("user", JSON.stringify(userData));
+    localStorage.setItem("token", token);
 
     setUser(userData);
     setIsAuthenticated(true);
