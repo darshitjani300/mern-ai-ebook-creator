@@ -25,7 +25,7 @@ app.use(
 app.use(express.json());
 
 //Static folders for upload
-app.use("/backend/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 //db
 connectDB();

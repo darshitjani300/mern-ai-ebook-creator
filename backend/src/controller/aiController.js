@@ -60,7 +60,6 @@ const generateOutline = async (req, res) => {
     const endIndex = text.lastIndexOf("]");
 
     if (startIndex === -1 || endIndex === -1) {
-      console.log("Cound not find JSON array in AI response ", text);
       return res
         .status(500)
         .json({ message: "Failed to parse AI response, no JSON array found." });

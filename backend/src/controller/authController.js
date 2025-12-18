@@ -19,13 +19,11 @@ exports.registerUser = async (req, res) => {
     }
 
     const userExist = await User.findOne({ email });
-    console.log(userExist);
     if (userExist) {
       return res.status(400).json({ message: "User already exists" });
     }
 
     const user = await User.create({ name, email, password });
-    console.log(user);
     if (user) {
       return res.status(201).json({
         message: "User registered successfully",
@@ -45,9 +43,6 @@ exports.registerUser = async (req, res) => {
 // @access  Public
 exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
-
-  console.log(email);
-  console.log(password);
   try {
     if (!email || !password) {
       return res.status(400).json({ message: "Please fill all the fields" });

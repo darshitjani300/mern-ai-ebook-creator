@@ -138,11 +138,8 @@ const updateBookCover = async (req, res) => {
         .json({ message: "Not authorized to delete this book" });
     }
 
-    console.log(req.file);
-
     if (req.file) {
       book.coverImage = `/${req.file.path}`;
-      console.log(req.file.path);
     } else {
       return res.status(400).json({ message: "No image file provided" });
     }
