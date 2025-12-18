@@ -9,7 +9,7 @@ interface IprofileProp {
   companyName: string;
   email: string;
   onLogout: () => void;
-  userRole: string;
+  userRole?: string;
 }
 
 const ProfileDropdown: React.FC<IprofileProp> = ({
