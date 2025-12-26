@@ -4,21 +4,21 @@ A full-stack MERN application that allows users to generate ebooks using AI, edi
 
 ------------------------------------------------------------
 
-## Project Structure
+## 📂 Folder Structure
 
-mern-ai-ebook-creator/
-|
-|-- frontend/      (React application)
-|     |-- src/
-|     |-- public/
-|     |-- package.json
-|
-|-- backend/       (Node.js + Express + MongoDB API)
-|     |-- src/
-|     |-- routes/
-|     |-- package.json
-|
-|-- README.md
+```bash
+project-name/
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── backend/
+│   ├── src/
+│   ├── routes/
+│   └── package.json
+│
+└── README.md
 
 ------------------------------------------------------------
 
