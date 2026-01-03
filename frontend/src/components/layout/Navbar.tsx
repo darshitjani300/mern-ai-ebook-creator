@@ -66,7 +66,7 @@ const Navbar = () => {
                 companyName={user?.name || ""}
                 email={user?.email || ""}
                 userRole={user?.role || ""}
-                onLogout={() => console.log("Logout")}
+                onLogout={logout}
               />
             ) : (
               <>
@@ -85,6 +85,7 @@ const Navbar = () => {
               </>
             )}
           </div>
+
           {/* Mobile Menu Buttons */}
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -94,9 +95,10 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100 animate-in slide-in-from-top duration-200">
+        <div className="lg:hidden bg-white border-t border-gray-100 animate-slide-in-top">
           <nav className="px-4 py-4 space-y-1">
             {navLinks.map((link) => {
               return (

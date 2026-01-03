@@ -26,8 +26,6 @@ const LoginPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  console.log(formData);
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);

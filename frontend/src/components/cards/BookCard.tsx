@@ -11,6 +11,7 @@ interface IBookProp {
 const BookCard: React.FC<IBookProp> = (props) => {
   const { book, onDelete } = props;
   const navigate = useNavigate();
+
   const coverImageUrl = book.coverImage
     ? `${BASE_URL}${book.coverImage}`.replace(/\\/g, "/")
     : "";
@@ -30,7 +31,7 @@ const BookCard: React.FC<IBookProp> = (props) => {
           }}
         />
 
-        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex gap-2">
+        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex gap-2">
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -40,6 +41,7 @@ const BookCard: React.FC<IBookProp> = (props) => {
           >
             <Edit className="w-4 h-4 text-gray-700" />
           </button>
+
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -53,7 +55,7 @@ const BookCard: React.FC<IBookProp> = (props) => {
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-        <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent backdrop-blur-xs"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent backdrop-blur-xs"></div>
         <div className="relative">
           <h3 className="font-semibold text-white text-sm leading-tight line-clamp-2 mb-1">
             {book.title}

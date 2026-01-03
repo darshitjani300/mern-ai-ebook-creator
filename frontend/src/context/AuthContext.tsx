@@ -50,7 +50,6 @@ export const AuthProvider = ({ children }: any) => {
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    localStorage.removeItem("refreshToken");
 
     setUser(null);
     setIsAuthenticated(false);
