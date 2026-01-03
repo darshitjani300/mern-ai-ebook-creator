@@ -71,6 +71,8 @@ const DashboardPage = () => {
     navigate(`/editor/${bookId}`);
   };
 
+  console.log(books)
+
   return (
     <DashboardLayout>
       <div className="container mx-auto p-6">
@@ -97,11 +99,12 @@ const DashboardPage = () => {
               <BookCardSkeleton key={i} />
             ))}
           </div>
-        ) : books.length === 0 ? (
+        ) : books?.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-12 text-center border-2 border-dashed border-slate-200 rounded-xl mt-8">
             <div className="w-16 h-16 flex items-center justify-center bg-slate-100 rounded-full mb-4">
               <Book className="w-8 h-8 text-slate-500" />
             </div>
+
             <h3 className="text-lg font-medium text-slate-900 mb-2">
               No eBooks Found
             </h3>
@@ -120,7 +123,7 @@ const DashboardPage = () => {
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {books.map((book: any) => (
+            {books?.map((book: any) => (
               <BookCard
                 key={book._id}
                 book={book}
@@ -129,6 +132,8 @@ const DashboardPage = () => {
             ))}
           </div>
         )}
+
+       
         <ConfirmationModal
           isOpen={!!bookToDelete}
           onClose={() => setBookToDelete(null)}

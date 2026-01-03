@@ -1,5 +1,66 @@
-const SelectField = () => {
-  return <div>SelectField</div>;
+import React from "react";
+
+interface IinputFieldProp {
+  Icon: any;
+  label: string;
+  value: any;
+  name: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  options: string[];
+}
+
+const SelectField: React.FC<IinputFieldProp> = ({
+  Icon,
+  label,
+  value,
+  onChange,
+  options,
+  name,
+}) => {
+  return (
+    <div className="space-y-2">
+      <label htmlFor={name} className="block text-sm font-medium text-gray-700">
+        {label}
+      </label>
+      <div className="relative">
+        {Icon && (
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
+            <Icon className="w-4 h-4 text-gray-400" />
+          </div>
+        )}
+        <select
+          id={name}
+          name={name}
+          className={`w-full h-11 px-3 py-2 border border-gray-200 rounded-xl bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all appearance-none ${
+            Icon ? "pl-10" : ""
+          }`}
+          value={value}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChange(e)}
+        >
+          {options.map((opt: any) => (
+            <option key={opt.value || opt} value={opt.value || opt}>
+              {opt.label || opt}{" "}
+            </option>
+          ))}
+        </select>
+        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+          <svg
+            className="w-4 h-4 text-gray-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default SelectField;

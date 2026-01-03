@@ -13,7 +13,7 @@ export const API_PATH = {
     GET_BOOK_BY_ID: "/api/books",
     UPDATE_BOOK: "/api/books",
     DELETE_BOOK: "/api/books",
-    UPDATE_BOOK_COVER: "/api/books/cover/:id",
+    UPDATE_BOOK_COVER: "/api/books/cover",
   },
   AI: {
     GENERATE_OUTLINE: "/api/ai/generate-outline",

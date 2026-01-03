@@ -1,14 +1,18 @@
 import React from "react";
 
 interface IinputFieldProp {
-  Icon: any;
+  Icon?: any;
   label: string;
-  name: string;
-  type: string;
-  placeholder: string;
-  required: boolean;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  name?: string;
+  type?: string;
+  placeholder?: string;
+  required?: boolean;
+  value: any;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  min?: string;
+  max?: string;
+  className?: any;
+  disabled?: boolean;
 }
 
 const InputField: React.FC<IinputFieldProp> = ({
@@ -20,6 +24,10 @@ const InputField: React.FC<IinputFieldProp> = ({
   required,
   value,
   onChange,
+  min,
+  max,
+  className,
+  disabled,
 }) => {
   return (
     <div className="space-y-2">
@@ -39,10 +47,13 @@ const InputField: React.FC<IinputFieldProp> = ({
           required={required}
           placeholder={placeholder}
           value={value}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange?.(e)}
           className={`w-full h-11 px-3 py-2 border border-gray-200 rounded-xl bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all ${
             Icon ? "pl-10" : ""
-          } `}
+          } ${className}`}
+          min={min}
+          max={max}
+          disabled={disabled}
         />
       </div>
     </div>

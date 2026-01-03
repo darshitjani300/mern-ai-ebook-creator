@@ -22,7 +22,6 @@ const ProfileDropdown: React.FC<IprofileProp> = ({
   userRole,
 }) => {
   const navigate = useNavigate();
-  console.log(userRole);
 
   return (
     <div className="relative">
@@ -39,7 +38,7 @@ const ProfileDropdown: React.FC<IprofileProp> = ({
         ) : (
           <div className="h-8 w-8 bg-linear-to-br from-violet-400 to-purple-500 rounded-xl flex items-center justify-center">
             <span className="text-white font-semibold text-sm">
-              {companyName.charAt(0).toUpperCase()}
+              {companyName?.charAt(0).toUpperCase() || "P"}
             </span>
           </div>
         )}
@@ -51,6 +50,7 @@ const ProfileDropdown: React.FC<IprofileProp> = ({
 
         <ChevronDown className="h-4 w-4 text-gray-400" />
       </button>
+      
       {isOpen && (
         <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
           <div className="px-4 py-3 border-b border-gray-100">
