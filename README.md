@@ -1,6 +1,6 @@
 # MERN AI Ebook Creator
 
-A full-stack MERN application that allows users to generate ebooks using AI, edit content, and export as PDF or DOCX. Built with React, Node.js, Express, MongoDB, and Gemini/OpenAI integration.
+A full-stack MERN application that allows users to generate ebooks using AI, edit content, and export as PDF. Built with React, Node.js, Express, MongoDB, and Gemini/OpenAI integration.
 
 ------------------------------------------------------------
 
@@ -35,7 +35,7 @@ Backend:
 - Express.js
 - MongoDB + Mongoose
 - AI Integration (Gemini or OpenAI API)
-- PDF and DOCX export utilities
+- PDF export utilities
 
 ------------------------------------------------------------
 
@@ -84,7 +84,7 @@ http://localhost:5173
 
 - Generate ebook content using AI
 - Create, edit, and save chapters
-- Export as PDF or DOCX
+- Export as PDF
 - Save ebooks in database
 - Clean MERN architecture
 
