@@ -19,9 +19,7 @@ const BookDetailsTab: React.FC<IBookDetailTab> = ({
   isUploading,
   fileInputRef,
 }) => {
-  const coverImageUrl = book.coverImage.startsWith("http")
-    ? book.coverImage
-    : `${BASE_URL}${book.coverImage}`.replace(/\\/g, "/");
+  const coverImageUrl = book?.picture?.url;
 
   return (
     <div className="p-8 max-w-4xl mx-auto">

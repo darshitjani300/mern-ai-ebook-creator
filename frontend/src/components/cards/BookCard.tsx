@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { BASE_URL } from "../../utils/apiPath";
 import { Edit, Trash2 } from "lucide-react";
 import React from "react";
 
@@ -12,9 +11,7 @@ const BookCard: React.FC<IBookProp> = (props) => {
   const { book, onDelete } = props;
   const navigate = useNavigate();
 
-  const coverImageUrl = book.coverImage
-    ? `${BASE_URL}${book.coverImage}`.replace(/\\/g, "/")
-    : "";
+  const coverImageUrl = book?.picture?.url;
 
   return (
     <div
