@@ -2,8 +2,8 @@ const express = require("express");
 const {
   exportAsPDF,
   exportAsDocument,
-} = require("../controller/exportController");
-const protect = require("../middleware/authMiddleware");
+} = require("../controller/exportController.js");
+const protect = require("../middleware/authMiddleware.js");
 const router = express.Router();
 
 router.get("/:id/pdf", protect, exportAsPDF);

@@ -1,4 +1,6 @@
-const Book = require("../model/Book");
+const Book = require("../model/Book.js");
+const uploadToCloudinary = require("../middleware/upload.js");
+const cloudinary = require("../config/cloudinary.js");
 
 // @desc    Create a new book
 // @route   POST /api/books
@@ -127,6 +129,7 @@ const deleteBook = async (req, res) => {
 const updateBookCover = async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
+    const file = req.file;
 
     if (!book) {
       return res.status(404).json({ message: "Book not found" });
@@ -138,17 +141,35 @@ const updateBookCover = async (req, res) => {
         .json({ message: "Not authorized to delete this book" });
     }
 
-    if (req.file) {
-      book.coverImage = `/${req.file.path}`;
-    } else {
+    if (!file) {
       return res.status(400).json({ message: "No image file provided" });
     }
 
-    const updatedBook = await book.save();
+    const uploadResult = await uploadToCloudinary(file.buffer, "ebook");
+
+    if (book?.picture?.public_id) {
+      await cloudinary.uploader.destroy(book?.picture?.public_id);
+    }
+
+    const updatedBook = await Book.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: {
+          picture: {
+            url: uploadResult?.secure_url,
+            public_id: uploadResult?.public_id,
+          },
+        },
+      },
+      {
+        new: true,
+        upsert: true,
+      }
+    );
 
     res.status(200).json(updatedBook);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return res.status(500).json({ message: "Something went wrong" });
   }
 };

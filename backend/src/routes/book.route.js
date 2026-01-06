@@ -7,9 +7,10 @@ const {
   deleteBook,
   updateBook,
   updateBookCover,
-} = require("../controller/bookController");
-const protect = require("../middleware/authMiddleware");
-const upload = require("../middleware/uploadMiddleware");
+} = require("../controller/bookController.js");
+const protect = require("../middleware/authMiddleware.js");
+const upload = require("../utils/multer.js");
+
 
 // Apply protect middleware to all the routes in this file.
 router.use(protect);

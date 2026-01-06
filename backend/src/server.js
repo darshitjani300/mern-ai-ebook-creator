@@ -3,12 +3,12 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 
-const connectDB = require("./config/db");
+const connectDB = require("./config/db.js");
 
-const authRoutes = require("./routes/auth.route");
-const bookRoutes = require("./routes/book.route");
-const aiRoutes = require("./routes/ai.route");
-const exportRoutes = require("./routes/export.route");
+const authRoutes = require("./routes/auth.route.js");
+const bookRoutes = require("./routes/book.route.js");
+const aiRoutes = require("./routes/ai.route.js");
+const exportRoutes = require("./routes/export.route.js");
 
 const app = express();
 

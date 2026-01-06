@@ -38,9 +38,15 @@ const bookSchema = new mongoose.Schema(
       required: true,
     },
 
-    coverImage: {
-      type: String,
-      default: "",
+    picture: {
+      url: {
+        type: String,
+        default: "",
+      },
+      public_id: {
+        type: String,
+        default: "",
+      },
     },
 
     chapters: [chapterSchema],

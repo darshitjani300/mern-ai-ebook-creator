@@ -3,8 +3,8 @@ const router = express.Router();
 const {
   generateOutline,
   generateChapterContent,
-} = require("../controller/aiController");
-const protect = require("../middleware/authMiddleware");
+} = require("../controller/aiController.js");
+const protect = require("../middleware/authMiddleware.js");
 
 // protect middleware to all route
 router.use(protect);
