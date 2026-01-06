@@ -8,7 +8,7 @@ interface IProp {
   options: any;
 }
 
-const SimpleMDEditor: React.FC<IProp> = ({ value, onChange, options }) => {
+const SimpleMDEditor: React.FC<IProp> = ({ value, onChange }) => {
   return (
     <div
       className="border border-gray-200 rounded-lg overflow-hidden shadow-sm"

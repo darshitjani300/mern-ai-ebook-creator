@@ -19,7 +19,6 @@ const ProfileDropdown: React.FC<IprofileProp> = ({
   companyName,
   email,
   onLogout,
-  userRole,
 }) => {
   const navigate = useNavigate();
 
