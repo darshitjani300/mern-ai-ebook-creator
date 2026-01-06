@@ -49,7 +49,7 @@ const EditorPage = () => {
         const response = await axiosInstance.get(
           `${API_PATH.BOOK.GET_BOOK_BY_ID}/${bookId}`
         );
-        setBook(response.data);
+        setBook(response?.data || []);
       } catch (error) {
         toast.error("Failed to load book details.");
         navigate("/dashboard");
@@ -57,6 +57,7 @@ const EditorPage = () => {
         setIsLoading(false);
       }
     };
+    
     fetchBook();
   }, [bookId, navigate]);
 

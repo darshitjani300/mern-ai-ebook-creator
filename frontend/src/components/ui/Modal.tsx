@@ -15,7 +15,7 @@ const Modal: React.FC<ImodalProp> = ({ isOpen, onClose, children, title }) => {
     <div className="fixed inset-0 z-50 overflow-y-auto">
       <div className="flex items-center justify-center min-h-screen px-4 text-center">
         <div
-          className="fixed inset-0 bg-black/10 bg-opacity-25 transition-opacity"
+          className="fixed inset-0 bg-black/40 bg-opacity-25 transition-opacity"
           onClick={onClose}
         ></div>
         <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6 relative text-left">

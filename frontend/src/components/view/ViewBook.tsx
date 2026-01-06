@@ -9,19 +9,17 @@ const ViewBook = ({ book }: { book: any }) => {
 
   const selectedChapter = book.chapters[selectedChapterIndex];
 
-  //Format content
-  const formatContent = (content: any) => {
+  console.log("Selected Chapter ", selectedChapter);
+
+  const formatContent = (content = "") => {
     return content
       .split("\n\n")
-      .filter((paragraph: any) => paragraph.trim())
-      .map((paragraph: any) => paragraph.trim())
-      .map((paragraph: any) => {
-        paragraph = paragraph.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-        paragraph = paragraph.replace(
-          /(?<!)\*\*(?!\*)(.*?)\*(?!\*)/g,
-          "<em>$1</em>"
-        );
-        return `<p>${paragraph}</p>`;
+      .map((p) => p.trim())
+      .filter(Boolean)
+      .map((p) => {
+        p = p.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+        p = p.replace(/\*(?!\*)(.+?)\*/g, "<em>$1</em>");
+        return `<p>${p}</p>`;
       })
       .join("");
   };
@@ -57,7 +55,7 @@ const ViewBook = ({ book }: { book: any }) => {
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-2 mr-4">
               <button
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-sm font-bold"
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-lg font-bold"
                 onClick={() => setFontSize(Math.max(14, fontSize - 2))}
               >
                 A-
@@ -77,7 +75,7 @@ const ViewBook = ({ book }: { book: any }) => {
         <div className="flex-1 overflow-y-auto">
           <div className="max-w-4xl mx-auto px-6 py-12">
             <h1 className="text-xl md:text-3xl font-bold mb-8 leading-tight">
-              {selectedChapter.title}
+              {selectedChapter?.title}
             </h1>
 
             <div
@@ -88,7 +86,7 @@ const ViewBook = ({ book }: { book: any }) => {
                 fontFamily: 'Charter, Georgia, "Times New Roman", serif',
               }}
               dangerouslySetInnerHTML={{
-                __html: formatContent(selectedChapter.content),
+                __html: formatContent(selectedChapter?.content),
               }}
             />
 
@@ -125,7 +123,7 @@ const ViewBook = ({ book }: { book: any }) => {
       </main>
 
       <style>
-        {`.reading-content p {
+            {`.reading-content p {
                 margin-bottom: 1.5em;
                 text-align: justify;
                 hyphens:auto

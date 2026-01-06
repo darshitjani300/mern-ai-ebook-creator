@@ -71,7 +71,7 @@ const DashboardPage = () => {
     navigate(`/editor/${bookId}`);
   };
 
-  console.log(books)
+  console.log("Books ",books)
 
   return (
     <DashboardLayout>

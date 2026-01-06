@@ -50,7 +50,7 @@ const ProfileDropdown: React.FC<IprofileProp> = ({
 
         <ChevronDown className="h-4 w-4 text-gray-400" />
       </button>
-      
+
       {isOpen && (
         <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
           <div className="px-4 py-3 border-b border-gray-100">
@@ -58,11 +58,18 @@ const ProfileDropdown: React.FC<IprofileProp> = ({
             <p className="text-xs text-gray-500">{email}</p>
           </div>
           <a
+            onClick={() => navigate("/dashboard")}
+            className="block px-4 py-2 mt-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer"
+          >
+            Dashboard
+          </a>
+          <a
             onClick={() => navigate("/profile")}
             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer"
           >
             View Profile
           </a>
+
           <div className="border-t border-gray-100 mt-2 pt-2">
             <a
               href="#"

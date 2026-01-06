@@ -78,6 +78,8 @@ const CreateBookModal: React.FC<ICreateModalProp> = ({
     }
   };
 
+  console.log("Chapters ",chapters)
+
   const handleChapterChange = (index: number, field: string, value: any) => {
     const updatedChapters: any = [...chapters];
     updatedChapters[index][field] = value;
@@ -242,7 +244,7 @@ const CreateBookModal: React.FC<ICreateModalProp> = ({
                   className="group p-4 border border-gray-200 rounded-xl hover:border-gray-300 hover:shadow-sm transition-all bg-white "
                 >
                   <div className="flex items-start gap-3 mb-3">
-                    <div className="flex items-center justify-center w-6 h-6 rounded-full bg-violet-50 text-violet-600 text-xs font-semibold shrink-0 mt-2">
+                    <div className="flex items-center justify-center w-6 h-6 rounded-full bg-violet-50 text-violet-600 text-xs font-semibold shrink-0 mt-0.5">
                       {index + 1}
                     </div>
                     <input
@@ -252,7 +254,7 @@ const CreateBookModal: React.FC<ICreateModalProp> = ({
                         handleChapterChange(index, "title", e.target.value)
                       }
                       placeholder="Chapter Title"
-                      className="flex-1 text-base font-medium text-gray-900 bg-transparent border-none focus:outline-none focus:ring-0 p-0"
+                      className="flex-1 text-base font-medium text-gray-900 bg-transparent border-none focus:outline-none focus:ring-0 p-0 truncate"
                     />
                     <button
                       onClick={() => handleDeleteChapter(index)}

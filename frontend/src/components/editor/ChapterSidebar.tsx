@@ -67,7 +67,7 @@ const SortableItem = ({
           {...listeners}
           {...attributes}
         />
-        <span className="truncate">{chapter.title}</span>
+        <span className="w-full truncate">{chapter.title}</span>
       </button>
       <div className="flex items-center ml-2 bg-white opacity-0 group-hover:opacity-100 transition-opacity px-2 py-3 absolute right-0">
         <Button
@@ -110,6 +110,7 @@ const ChapterSidebar = ({
   const chapterIds = book.chapters.map(
     (chpter: any, index: number) => chpter._id || `new-${index}`
   );
+  
   const handleDragEnd = (event: any) => {
     const { active, over } = event;
     if (active.id !== over.id) {

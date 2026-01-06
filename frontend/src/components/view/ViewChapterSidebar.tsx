@@ -20,7 +20,7 @@ const ViewChapterSidebar: React.FC<Iprop> = ({
       {/* Mobile Overlay */}
       {isOpen && (
         <div
-          className="flexed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
           onClick={onClose}
         ></div>
       )}
@@ -37,6 +37,7 @@ const ViewChapterSidebar: React.FC<Iprop> = ({
               <BookOpen className="w-5 h-5 text-violet-600" />
               <span className="font-medium text-gray-900">Chapters</span>
             </div>
+
             <button
               className="lg:hidden p-1 hover:bg-gray-100 rounded-lg transition-colors"
               onClick={onClose}
@@ -45,6 +46,7 @@ const ViewChapterSidebar: React.FC<Iprop> = ({
             </button>
           </div>
         </div>
+
         <div className="overflow-y-auto h-full pb-20">
           {book.chapters.map((chapter: any, index: number) => (
             <button
