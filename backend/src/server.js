@@ -31,6 +31,9 @@ app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 connectDB();
 
 //routes
+app.get("/", (req,res) => {
+  res.send("Server is running fine")
+})
 app.use("/api/auth", authRoutes);
 app.use("/api/books", bookRoutes);
 app.use("/api/ai", aiRoutes);
