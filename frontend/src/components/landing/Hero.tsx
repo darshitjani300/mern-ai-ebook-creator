@@ -8,12 +8,12 @@ const Hero = () => {
   const { isAuthenticated }: any = useAuth();
 
   return (
-    <div className="relative bg-linear-to-br from-violet-50 via-white to-purple-50 overflow-hidden h-screen w-screen flex items-center justify-center">
+    <div className="relative bg-linear-to-br from-violet-50 via-white to-purple-50 overflow-hidden min-h-dvh min-w-dvw flex items-center justify-center">
       {/* Background Elements */}
       <div className="absolute top-20 left-20 w-64 h-64 bg-violet-200/30 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-violet-200/20 rounded-full blur-3xl animate-pulse delay-700"></div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32 relative">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 lg:py-32 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <motion.div

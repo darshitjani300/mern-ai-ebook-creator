@@ -33,7 +33,7 @@ const Features = () => {
   return (
     <div
       id="features"
-      className="relative py-24 lg:py-32 bg-white overflow-hidden h-screen w-screen flex items-center justify-center"
+      className="relative py-24 lg:py-32 bg-white overflow-hidden min-h-dvh min-w-dvw flex items-center justify-center"
     >
       {/* Subtle Background Pattern */}
 

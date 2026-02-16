@@ -45,7 +45,7 @@ const Testimonials = () => {
   return (
     <div
       id="testimonials"
-      className="relative py-24 lg:py-32 bg-linear-to-br from-violet-50 via-purple-50 to-white overflow-hidden h-screen w-screen flex items-center justify-center"
+      className="relative py-24 lg:py-32 bg-linear-to-br from-violet-50 via-purple-50 to-white overflow-hidden min-h-dvh min-w-dvw flex items-center justify-center"
     >
       {/* Decorative Elements */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-violet-200/30 rounded-full blur-3xl"></div>
