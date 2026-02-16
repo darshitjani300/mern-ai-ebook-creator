@@ -1,17 +1,52 @@
 import { FEATURES } from "../../utils/data";
+import { motion, type Variants } from "framer-motion";
 
 const Features = () => {
+  const sectionVariant: Variants = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
+
+  const containerVariant: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.35,
+      },
+    },
+  };
+
+  const cardVariant: Variants = {
+    hidden: { opacity: 0, y: 40, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
     <div
       id="features"
-      className="relative py-24 lg:py-32 bg-white overflow-hidden"
+      className="relative py-24 lg:py-32 bg-white overflow-hidden h-screen w-screen flex items-center justify-center"
     >
       {/* Subtle Background Pattern */}
 
       <div className="absolute inset-0 bg-linear-to-b from-violet-50/50 via-transparent to-purple-50/50"></div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
-        <div className="text-center mb-20 space-y-4">
+        <motion.div
+          className="text-center mb-20 space-y-4"
+          variants={sectionVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-500px" }}
+        >
           <div className="inline-flex items-center space-x-2 bg-violet-100 px-4 py-2 rounded-full">
             <span className="w-2 h-2 bg-violet-600 rounded-full animate-pulse"></span>
             <span className="text-sm font-semibold text-violet-900">
@@ -28,14 +63,23 @@ const Features = () => {
             Our platform is packed with powerful features to help you write,
             design, and publish your ebook effortlessly.
           </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        </motion.div>
+
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={containerVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {FEATURES.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <div
+              <motion.div
                 key={index}
                 className="group relative bg-white rounded-2xl p-8 border border-gray-100 hover:border-violet-200 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/10 -translate-y-1"
+                variants={cardVariant}
+                transition={{ type: "spring", stiffness: 200, damping: 15 }}
               >
                 <div className="absolute inset-0 bg-linear-to-br from-violet-50/0 to-purple-50/0 group-hover:from-violet-50/50 group-hover:to-purple-50/30 rounded-2xl transition-all duration-300"></div>
                 <div className="relative space-y-4">
@@ -71,10 +115,11 @@ const Features = () => {
                     </span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
+
         <div className="text-center mt-16">
           <p className="text-gray-600 mb-6">Ready to get started?</p>
           <a

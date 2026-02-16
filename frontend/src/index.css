@@ -23,6 +23,7 @@
 @layer base {
   html {
     font-family: var(--font-display);
+    scroll-behavior: smooth;
   }
 
   body {

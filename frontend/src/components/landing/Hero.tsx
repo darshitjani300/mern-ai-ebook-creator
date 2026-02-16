@@ -1,12 +1,14 @@
 import { ArrowRight, Sparkles, BookOpen, Zap } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { leftVariant, rightVariant } from "../../helper/LoadAnimation";
 
 const Hero = () => {
   const { isAuthenticated }: any = useAuth();
 
   return (
-    <div className="relative bg-linear-to-br from-violet-50 via-white to-purple-50 overflow-hidden">
+    <div className="relative bg-linear-to-br from-violet-50 via-white to-purple-50 overflow-hidden h-screen w-screen flex items-center justify-center">
       {/* Background Elements */}
       <div className="absolute top-20 left-20 w-64 h-64 bg-violet-200/30 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-violet-200/20 rounded-full blur-3xl animate-pulse delay-700"></div>
@@ -14,7 +16,12 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div className="max-w-xl space-y-8">
+          <motion.div
+            className="max-w-xl space-y-8"
+            variants={leftVariant}
+            initial="hidden"
+            animate="visible"
+          >
             <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-violet-100 shadow-sm ">
               <Sparkles className="w-4 h-4 text-violet-600" />
               <span className="text-sm font-medium text-violet-900">
@@ -70,10 +77,15 @@ const Hero = () => {
                 <div className="text-sm text-gray-600">Avg. Creation</div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Content */}
-          <div className="relative lg:pl-8">
+          <motion.div
+            className="relative lg:pl-8"
+            variants={rightVariant}
+            initial="hidden"
+            animate="visible"
+          >
             <div className="relative">
               <div className="absolute -inset-4 bg-linear-to-r from-violet-600 to-purple-600 rounded-3xl opacity-20 blur-2xl"></div>
 
@@ -116,7 +128,7 @@ const Hero = () => {
             </div>
             <div className="absolute -top-8 -left-8 w-20 h-20 bg-violet-400/20 rounded-2xl rotate-12 "></div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-purple-400/20 rounded-full "></div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

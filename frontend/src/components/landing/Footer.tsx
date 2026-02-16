@@ -2,13 +2,13 @@ import { BookOpen, Twitter, Linkedin, Github } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="relative bg-linear-to-br from-gray-900  via-gray-900 to-violet-900 text-white overflow-hidden ">
+    <footer className="relative bg-linear-to-br from-gray-900  via-gray-900 to-violet-900 text-white overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 right-0 w-100 h-100 bg-violet-500 rounded-full blur-3xl "></div>
       </div>
 
-      <div className="relative max-w-7xl px-6 lg:px-8">
+      <div className="relative max-w-7xl px-6 lg:px-8 m-auto">
         <div className="py-16 grid grid-cols-1 md:grid-cols-12 gap-12">
           {/* Brand Section */}
           <div className="md:col-span-5 space-y-6">
